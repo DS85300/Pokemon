@@ -1,27 +1,20 @@
-import { useState } from 'react'
-import './App.css'
-
+import './App.css';
+import { Routes, Route } from 'react-router';
+import Favorites from './Pages/Favorites';
+import MyPokemons from './Pages/MyPokemons';
+import Layout from './Layout/Layout';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <div className="navbar bg-[#941f8a] text-neutral-content">
-  <button className="btn btn-ghost text-xl">My Pokemons</button>
-</div>
-
-<div className="navbar bg-[#1f9473]">
-  <button className="btn btn-ghost text-xl">Favorite Pokemons</button>
-</div>
-
-<div className="navbar bg-[#e7f20f] text-black">
-  <button className="btn btn-ghost text-xl">Something Else with Pokemon</button>
-</div>
-    
-
-    </>
-  )
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/myPokemons" element={<MyPokemons />} />
+          <Route path="/favorites/:name" element={<Favorites />} />
+        </Route>
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
