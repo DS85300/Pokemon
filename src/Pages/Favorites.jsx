@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
 const Favorites = () => {
-  const { name } = useParams();  // Get the name parameter from the URL
+  const { name } = useParams();  
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -14,10 +14,10 @@ const Favorites = () => {
         const data = await response.json();
         console.log(data);
         setPokemon(data);
-        setLoading(false);  // Set loading to false once data is fetched
+        setLoading(false);  
       } catch (error) {
         console.error(error);
-        setLoading(false);  // Stop loading even on error
+        setLoading(false); 
       }
     };
 
